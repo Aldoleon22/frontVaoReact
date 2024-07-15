@@ -16,7 +16,7 @@ const App = () => {
       navigate;
     } else {
       setIsToken(false); // Assure que l'utilisateur est déconnecté si aucun token n'est trouvé
-      navigate("/login"); // Redirection vers la page de login si aucun token n'est trouvé
+      navigate("/"); // Redirection vers la page de login si aucun token n'est trouvé
     }
   }, [navigate]);
   // Redirection en fonction du statut de l'utilisateur
@@ -28,7 +28,7 @@ const App = () => {
       <Route path="/Homadmin/adHome/*" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
        
         <Route path="/home/*" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="" element={<Login />} />
         {/* Ajoutez d'autres routes ici */}
       </Routes>
     </TokenContext.Provider>
