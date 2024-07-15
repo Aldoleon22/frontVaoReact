@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Inscription.scss';
 import { FaLock, FaRegEyeSlash, FaEnvelope, FaRegUser } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [nom, setNom] = useState('');
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCpassword] = useState('');
@@ -24,7 +26,7 @@ function Register() {
         email,
         password,
       });
-
+      navigate ('/home')
       console.log('Inscription réussie:', response.data);
       // Redirection ou autre logique après inscription réussie
 
