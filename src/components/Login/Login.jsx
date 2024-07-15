@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { TokenContext } from '../../TokenContext';
+import './Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Login = () => {
       });
 
       if (response.data && response.data.access_token) {
-      
+
         setIsToken(true);
         localStorage.setItem('accessToken', response.data.access_token);
         console.log(response.data.access_token);
@@ -30,9 +31,9 @@ const Login = () => {
         // Rediriger en fonction du statut de l'utilisateur
         const userStatus = response.data.role;
         const userName = response.data.userName;
-       console.log(userStatus);
-      
-      
+        console.log(userStatus);
+
+
         switch (userStatus) {
           case 'superAdmin':
             console.log('Connecté en tant que SuperAdmin');
@@ -61,25 +62,41 @@ const Login = () => {
   };
 
   return (
-    <div className='login'>
-      <form onSubmit={handleLogin}>
-        <input
-          type='email'
-          placeholder='Email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type='submit'>Login</button>
-        {error && <p className='error'>{error}</p>}
-      </form>
+    <div className='content'>
+      <div className="log">
+        <h1 className="title_log">Se connecter</h1>
+        <div className="formu">
+          <form onSubmit={handleLogin}>
+            <div className="inp">
+              <label htmlFor="">Email:</label>
+              <input
+                type='email'
+                placeholder='Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="inp">
+              <label htmlFor="">Mot de passe:</label>
+              <input
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="btnsub">
+              <button type='submit'>Login</button>
+            </div>
+
+            {error && <p className='error'>{error}</p>}
+          </form>
+        </div>
+
+      </div>
+
     </div>
   );
 };
