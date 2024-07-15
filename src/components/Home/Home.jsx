@@ -61,9 +61,9 @@ const Home = () => {
                         <Route path='' element={<Car />} />
                         <Route path='Inscription' element={<Inscription />} />
                         <Route path='Addcar' element={<AjoutEngin />} />
-                        <Route path='Modifengin' element={<CarModifAd />} />
+                        <Route path='Modifengin/:id' element={<CarModifAd />} />
                         <Route path='User' element={<AllUser />} />
-                        <Route path='Modifcar' element={<Modifcar />} />
+                        <Route path='Modifcar/:id' element={<Modifcar />} />
                     </Routes>
                 </div>
             </div>
