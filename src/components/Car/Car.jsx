@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "../../assets/image/46.jpg";
 
 import { Link, Routes, Route, useNavigate } from 'react-router-dom';
