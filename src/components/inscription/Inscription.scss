@@ -1,0 +1,140 @@
+:root{
+    --light: #302c2c;
+    --gray: #696969;
+    --orange: rgba(230, 87, 21, 0.61);
+    --darkGrey: #555557e7;
+    --caloryCard: #656565;
+    --planCard: linear-gradient(210.41deg, #f3f3f3 1.14%, #5c5c6d 100.75%);
+    --planCards: linear-gradient(280.41deg, #f3f3f3 0.14%, #c2c2c7 100.75%);
+    --planCardss: linear-gradient(180.41deg, #f5f5fa 3.14%,  #f3f3f3   80.75%);
+
+    --appColor: #3c3f45af;
+    --gris: rgba(119, 117, 115, 0.897);
+    --bghead: linear-gradient(90deg, $orange 1.14%, $appColor 50%);
+}
+
+.Inscription{
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding:5% 0 5% 0;
+    border-radius: 25px;
+    display: center;
+    margin-top: 5%;
+    width: 550px;
+    height: auto;
+    
+}
+input{
+    width: 50%;
+    height: 5vh;
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.form {
+    
+    .title{
+        position: relative;
+        font-size: 35px;
+        font-size: 600;
+    
+        &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 20px;
+        
+        color: var(--light);
+        border-radius: 25px;
+    } 
+    }
+    .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    
+    margin: 10px;
+    
+    }
+}
+
+
+
+.input-field input{
+    position: relative;
+    height: 100%;
+    width: 80%;
+    padding: 2px 25px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--light);
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    
+}
+
+ .soratra{
+    color: var(--light);
+ }
+.input-field input:is(:focus, :valid) ~ i{
+    border-bottom-color: var(--gris);
+}
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light);
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field i.icon{
+    left: 0;
+}
+
+.input-field i.showHidePw{
+    right: 30px;
+    cursor: pointer;
+    padding: 35px;
+}
+
+
+
+
+.form .text{
+    color: var(--light);
+    font-size: 14px;
+}
+.form a.text{
+    text-decoration: none;
+}
+   
+.form a:hover{
+    text-decoration: underline;
+}
+.form .button{
+    margin-top: 35px;
+}
+
+.form .button input{
+    border: none;
+    color: var(--light);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    background-color: var(--darkGrey);
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button input:hover{
+    color: #000;
+    background-color: var(--light);
+   
+}
+

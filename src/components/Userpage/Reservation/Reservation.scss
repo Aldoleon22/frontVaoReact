@@ -1,0 +1,132 @@
+.content-res{
+    width: 100%;
+    height: auto;
+    .Title{
+        padding: 0 0 2% 0;
+    }
+
+    .reservation{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 4%;
+
+
+        .voiture{
+            width: 100%;
+            height: auto;
+            padding:2% 2% 2% 2%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 5px black;
+        
+            .image{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 2%;
+                img{
+                    width: 300px;
+                    height: auto;
+                    border-radius: 10px;
+                }
+
+                .album{
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+                    img{
+                        width: 110px;
+                        height: auto;
+                        border-radius: 10px;
+                    }
+                }
+            }
+
+            .desc{
+                width: 100%;
+                height: auto;
+                text-align: left;
+
+                h2{
+                    color: aqua;
+                    font-weight: bold;
+                    margin: 2% 0 0 0;
+                }
+                p{
+                    padding: 2% 0 2% 0;
+                    font-weight: 500;
+                }
+
+                span{
+                    font-weight: bold;
+                }
+            }
+        }
+
+
+        .form{
+            width: 100%;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow:0 0 5px black;
+            margin: 3% 0 0 0;
+            padding:0 0 2% 0;
+            h1{
+                color: rgb(0, 238, 255);
+                font-weight: bold;
+                text-align: center;
+                padding:2% 0 0 0;
+            }
+            form{
+                width: 100%;
+                height: auto;
+                padding:2% 5% 2% 5%;
+
+                .inpform{
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin: 2% 0 2% 0;
+                    label{
+                        font-weight: bold;
+                        text-align: left;
+                    }
+
+                    input{
+                        width: 100%;
+                        height:35px;
+                        outline-color: rgb(0, 238, 255);
+                        text-align: left;
+                        padding:0 0 0 4%;
+                        border-radius: 10px;
+                    }
+                    button{
+                        width: 100%;
+                        height:35px;
+                        background: rgb(0, 238, 255);
+                        border: none;
+                        border-radius: 10px;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+    }
+
+}

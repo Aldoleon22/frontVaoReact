@@ -1,0 +1,69 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 0 0 0;
+
+
+    .log{
+        width:400px;
+        height:auto;
+        padding:2% 5% 2% 5%;
+        box-shadow:0 0 5px black;
+        border-radius: 5px;
+        .title_log{
+            color: rgba(0, 0, 255, 0.733);
+            text-align: center;
+        }
+
+        .formu{
+            form{
+                .inp{
+                    display: flex;
+                    flex-direction: column;
+                    padding:5% 5% 5% 5%;
+
+                    label{
+                        font-weight: bold;
+                        margin:0 0 1% 0;
+                    }
+                    input{
+                        width:100%;
+                        height:35px;
+                        border-radius:5px;
+                        border:1px solid black;
+                        padding:0 0 0 5%;
+                    }
+                }
+                .btnsub{
+                    padding:1% 5% 5% 5%;
+                    button{
+                        width:100%;
+                        height:35px;
+                        border:none;
+                        border-radius:5px;
+                        background:rgba(0, 0, 255, 0.733);
+                        color: white;
+                        font-weight:bold; 
+                        cursor: pointer;
+                        transition:.5s;
+                        &:hover{
+                            background: white;
+                            color:black;
+                            border: 1px solid black;
+                        }
+                    }
+                }
+
+                .oubl{
+                    @extend .btnsub;
+                }
+            }
+        }
+
+
+
+
+    }
+    
+}

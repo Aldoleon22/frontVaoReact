@@ -1,0 +1,37 @@
+.Historique{
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 10px;
+    h1{
+        text-align: center;
+        margin:2% 0 0 0;
+    }
+
+    .table_histo{
+        width: 100%;
+        height: auto;
+        align-items: center;
+        margin: 2% 0 0 0;
+        text-align: center;
+        padding: 0 2% 0 2%;
+        table{
+            width: 100%;
+            height: auto;
+
+            tr{
+                width: 100%;
+                height: auto;
+
+                th{
+                    background: aliceblue;
+                    padding: 1% 0% 1% 0%;
+                }
+                td{
+                    padding: 1% 1% 1% 0%;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,124 @@
+.desCar {
+    width: 100%;
+    height: auto;
+
+    h1 {
+        text-align: left;
+        margin: 2% 0 4% 0;
+    }
+
+    .imagedesc {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 4%;
+        background-color: #ffff;
+        padding: 2% 2% 2% 2%;
+        border-radius: 10px;
+
+        .image {
+            width: 100%;
+            height: auto;
+            padding: 2% 2% 2% 2%;
+
+            img {
+                width: 80%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+            .cardescription {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                height: auto;
+                gap: 5%;
+
+                span {
+                    width: 100%;
+                    height: auto;
+                    text-align: center;
+                    margin: 2% 0 0 0;
+                    border-radius: 10px;
+                    padding: 2% 2% 2% 2%;
+                    font-weight: bold;
+                    background: rgb(0, 183, 255);
+                    color: white;
+                }
+            }
+        }
+
+        .soudesc {
+            width: 600px;
+            height: auto;
+            text-align: left;
+            padding: 0 2% 0 2%;
+
+            h2 {
+                font-weight: bold;
+            }
+
+            p {
+                font-weight: bold;
+                margin: 2% 0 2% 0;
+            }
+
+            .action {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 4%;
+
+                .linkcar {
+                    color: black;
+                    width: 50%;
+                    height: 100%;
+                    background: rgb(0, 183, 255);
+                    color: white;
+                    text-align: center;
+                    padding: 2% 0 2% 0;
+                    border-radius: 10px;
+                    margin: 4% 0 0 0;
+                   
+                    .icon {
+                        font-size: 3rem;
+                    }
+                }
+
+            }
+
+            .gallerypar {
+                h3{
+                    font-weight: bold;
+                    margin:2% 0 2% 0;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                }
+                .gallery {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 2%;
+
+                    img {
+                        width: 100px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .descarimage {
+        width: 100%;
+        height: auto;
+    }
+}
