@@ -29,7 +29,6 @@ const App = () => {
         <Route path="/Homadmin/adHome/*" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/home/*" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="" element={<Login />} />
-        <Route path="/homeuser/*" element={<ProtectedRoute><UserVue /></ProtectedRoute>} />
         {/* Ajoutez d'autres routes ici */}
       </Routes>
     </TokenContext.Provider>

@@ -59,8 +59,8 @@ const AdHome = () => {
                         <Route path='' element={<CarAd />}/>
                         <Route path='AdCar' element={<AjoutEngin />}/>
                         <Route path='AllUser' element={<AllUserAd />}/>
-                        <Route path='voir' element={<CarModifAd />}/>
-                        <Route path='CarAdModif' element={<Modifcar />}/>
+                        <Route path='voir/:id' element={<CarModifAd />}/>
+                        <Route path='Modifcar/:id' element={<Modifcar />}/>
 
                     </Routes>
                 </div>
