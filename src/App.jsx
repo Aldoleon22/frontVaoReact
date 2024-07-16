@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Admin from "./components/Admin/Homadmin/AdHome";
+import UserVue from "./components/VueUser/UserVue";
 
 const App = () => {
   const [isToken, setIsToken] = useState(false);
@@ -16,7 +17,7 @@ const App = () => {
       navigate;
     } else {
       setIsToken(false); // Assure que l'utilisateur est déconnecté si aucun token n'est trouvé
-      navigate("/login"); // Redirection vers la page de login si aucun token n'est trouvé
+      navigate("/"); // Redirection vers la page de login si aucun token n'est trouvé
     }
   }, [navigate]);
   // Redirection en fonction du statut de l'utilisateur
@@ -25,10 +26,10 @@ const App = () => {
   return (
     <TokenContext.Provider value={[isToken, setIsToken]}>
       <Routes>
-      <Route path="/Homadmin/adHome/*" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
-       
+        <Route path="/Homadmin/adHome/*" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/home/*" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="" element={<Login />} />
+        <Route path="/homeuser/*" element={<ProtectedRoute><UserVue /></ProtectedRoute>} />
         {/* Ajoutez d'autres routes ici */}
       </Routes>
     </TokenContext.Provider>

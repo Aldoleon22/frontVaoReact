@@ -1,0 +1,340 @@
+@import '../../../fonction.scss';
+@import '../../../variable.scss';
+
+.Profile{
+    @include taille (100%,auto);
+    #{$dp}: flex;
+    align-items: center;
+    justify-content:center ;
+    margin-left: 270px;
+    .afferror{
+        @include taille (300px,60px);
+        background-color: rgba(0, 255, 0, 0.395);
+        @include position(absolute,25%,80%);
+        @include flexbox(flex,column,center);
+        border-radius: 5px;
+        cursor: pointer;
+        animation: transy 1s ease;
+        z-index: 1;
+        @keyframes transy {
+            // 0%{transform: translateX(100%);}
+            // 100%{transform: translateX(0%);}
+            0%{opacity:0;};
+            100%{opacity:1;};
+
+        }
+        p{
+            font-size: 1em;
+            font-family: sans-serif;
+        }
+        &.back{
+            // transform: translateX(100%);
+            opacity: 0;
+            transition: 0.5s ease;
+        }
+    }
+    .couvert{
+        @include taille (80%,1070px);
+        border-radius: 10px;
+        #{$dp}: flex;
+        position: relative;
+        box-shadow: 0 0 11px 0;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        overflow: hidden;
+        .msgBv{
+            @include taille (100%,35%);
+            position: absolute;
+            overflow: hidden;
+            #{$dp}: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            &::before{
+                content: "BIENVENU";
+                font-size: 4.5em;
+                font-weight: bolder;
+                color: antiquewhite;
+                @include flexbox (flex,row,center);
+                @include taille (100%,100%);
+                background-color: rgba(4, 36, 177, 0.374);
+                position: absolute;
+                backdrop-filter: blur(5px);
+            }
+            img{
+                #{$w}:100%
+            }
+        }
+        .imgPro{
+            @include taille (200px,200px);
+            position: absolute;
+            top:26%;
+            left:68%;
+            border-radius: 100px;
+            overflow: hidden;
+            img{
+                #{$w}:156%;
+            }
+        }
+        h1{
+            font-size: 3em;
+            font-family: sans-serif;
+            position: absolute;
+            top:37%;
+            left:28%;
+            span{
+                font-size: 0.9em;
+                font-weight:100;
+                font-family: sans-serif;
+
+            }
+        }
+       
+        .outils{
+            @include taille (60%,10%);
+            border-bottom: solid 2px grey;
+            position: absolute;
+            top:47%;
+            left:21%;
+            .navy{
+                #{$w}:100%;
+                #{$h}:100%;
+                @include flexbox(flex,row,center);
+            }
+            .nav{
+                list-style: none;
+            //    @include flexbox (flex,column,center);
+                @include taille(100%,53%);
+                position: relative;
+                overflow: hidden;
+
+
+                &.bar{
+                    border-left: solid 2px grey;
+                    border-right: solid 2px grey;
+                }
+                &::before{
+                    content: "";
+                    @include taille (100%,43%);
+                    position: absolute;
+                    left:0%;
+                    top:94%;
+                    background-color: wheat;
+                    transform: translateX(-100%);
+                    transition: 1s ease;
+
+                }
+                &:hover::before{
+                    transform: translateX(0%);
+                }
+
+            }
+            .nav-link{
+                text-decoration: none;
+                // @include flexbox (flex,row,center);
+                color: rgb(203, 204, 206);
+                font: 20px Raleway;
+                // margin: 0px 10px;
+                // padding: 10px 10px;
+                position: relative;
+                z-index: 0;
+                cursor: pointer;
+                }
+        }
+        .outil{
+            @include taille (60%,10%);
+            border-bottom: solid 2px grey;
+            position: absolute;
+            top:7%;
+            left:21%;
+            .navs{
+                #{$w}:100%;
+                #{$h}:100%;
+                // @include flexbox(flex,row,center);
+
+            }
+            .nave{
+                list-style: none;
+            //    @include flexbox (flex,column,center);
+                @include taille(50%,53%);
+                margin-top: 15px;
+                position: relative;
+                overflow: hidden;
+
+
+                &.bar{
+                    border-left: solid 2px grey;
+                    border-right: solid 2px grey;
+                }
+                &::before{
+                    content: "";
+                    @include taille (60%,43%);
+                    position: absolute;
+                    left:0%;
+                    top:94%;
+                    background-color: wheat;
+                    transform: translateX(-100%);
+                    transition: 1s ease;
+
+                }
+                &:hover::before{
+                    transform: translateX(0%);
+                }
+
+            }
+            .nav-link{
+                text-decoration: none;
+                // @include flexbox (flex,row,center);
+                color: rgb(203, 204, 206);
+                font: 20px Raleway;
+                // margin: 0px 10px;
+                // padding: 10px 10px;
+                position: relative;
+                z-index: 0;
+                cursor: pointer;
+                }
+        }
+        .contenuPart{
+            @include taille (70%,40%);
+            box-shadow: 0 0 11px 0;
+            border-radius: 10px;
+            position:absolute;
+            top:59%;
+            left:17%;
+            padding: 2% 2% 2% 2%;
+            transition: 1 ease;
+            overflow: hidden;
+            
+
+
+        
+            &.tach-1{
+                
+                
+                display: flex;
+                
+
+               .Primo{
+                
+                @include taille (70%,20%);
+                align-items: center;
+                justify-content: center;
+                font-size: 2.1em;
+                color: antiquewhite;
+                font-style: italic;
+                text-align: center;
+                
+                .contenuParts{
+                    @include taille (70%,auto);
+                    box-shadow: 0 0 11px 0;
+                    border-radius: 10px;
+                    position:absolute;
+                    top: 30%;
+                    left:17%;
+                    
+                }
+                form{
+                    @include taille (100%,100%);
+                    @include flexbox (flex,column,space-evenly);
+                    input{
+                        @include taille (60%,50%);
+                        border-radius:20px;
+                        background-color:rgba(31, 31, 31, 0);
+                        color: #e4e4e4;
+                        border:none;
+                        outline: none;
+                        margin-left: 50px;
+                        padding-left: 10px;
+                        margin-top: 19px;
+                        border-bottom: solid 1px white;
+                    }
+                    button{
+                        @include taille (116px,49px);
+                        border: none;
+                        background-color:#2d3d47;
+                        border-radius: 5px;
+                        color:aliceblue;
+                        font-size: 1em;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center  ;
+                         border: none;
+                         background-color:#0e6ba4;
+                         border-radius: 100px;
+                         color:aliceblue;
+                         font-size: 1em;
+                         position: relative;
+                         overflow: hidden;
+                         transition: 1s ease;
+                         margin-top: 10px;
+                        &:hover{
+                            #{$w}:131px;
+                            transition: 1s ease;
+                        
+                        }
+                    }
+                }
+               }
+              
+            }
+            &.tach-2{
+             position: absolute;
+                
+                z-index: 1;
+                .affMsg{
+                    @include taille (100%,75%);
+                    @include flexbox (flex,column-reverse,flex-start);
+                    overflow: scroll;
+                    scrollbar-width: none;
+                    .afftext{
+                        @include taille (100%,auto);
+                        position: relative;
+                        margin: 7px 0;
+                        border-radius: 5px;
+                        @include flexbox (flex,row,end);
+                        justify-content: flex-start;
+                        .imgpro{
+                            @include taille (20px,20px);
+                            border-radius: 100px;
+                            overflow: hidden;
+                            margin-top: -7%;
+                            img{
+                                @include taille (100%,100%);
+                            }
+                        }
+                        .messtext{
+                            @include taille (36%,auto);
+                            background-color: #c4c4c4;
+                            font-size: 1.2em;
+                            margin: 3px 10px 3px 5px;
+                            padding: 10px 0 10px 10px;
+                            border-radius: 0px 29px 24px 19px;
+                        }
+                    }
+                    .afftext2{
+                        @include taille (100%,auto);
+                        position: relative;
+                        margin: 7px 0;
+                        border-radius: 5px;
+                        @include flexbox (flex,row,end);
+                        .imgpro{
+                            display: none;
+                        }
+                        .messtext{
+                            @include taille (36%,auto);
+                            background-color: #208ded;
+                            color: white;
+                            font-size: 1.2em;
+                            margin: 3px 10px 3px 5px;
+                            padding: 10px 0 10px 10px;
+                            border-radius: 24px 24px 0px 19px;
+                        }
+                    }
+
+                  }
+               
+            }
+            
+        }
+    }
+}
