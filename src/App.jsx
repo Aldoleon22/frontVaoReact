@@ -5,7 +5,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Admin from "./components/Admin/Homadmin/AdHome";
-import User from "./components/User/HomeUser/UserHome";
+import UserVue from "./components/VueUser/UserVue";
 
 const App = () => {
   const [isToken, setIsToken] = useState(false);
@@ -26,9 +26,7 @@ const App = () => {
   return (
     <TokenContext.Provider value={[isToken, setIsToken]}>
       <Routes>
-      <Route path="/HomeUser/UserHome/*" element={<ProtectedRoute><User /></ProtectedRoute>} />
-      <Route path="/Homadmin/adHome/*" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
-       
+        <Route path="/Homadmin/adHome/*" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/home/*" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="" element={<Login />} />
         {/* Ajoutez d'autres routes ici */}
