@@ -13,6 +13,7 @@ const Modifcar = () => {
         matricule:''
         // photo:null
     });
+    const role = localStorage.getItem('role');
     
 
     useEffect(()=>{
@@ -59,7 +60,11 @@ const Modifcar = () => {
             formData.append('matricule', carModif.matricule);
         try {
             const bon = await axios.post("http://127.0.0.1:8000/api/updatCar/"+id, formData)
-            navigate('/home');
+            if (role === 'superAdmin') {
+                navigate('/home');
+            }else if(role === 'admin'){
+                navigate('/Homadmin/AdHome');
+            }
             console.log(bon.data.message);
             
         } catch (error) {

@@ -10,7 +10,7 @@ const [dataCar, setDataCar] = useState({
     marque:'',
     matricule:''
 });
-
+const role = localStorage.getItem('role');
 const fileChange = (e) => {
     setFile(e.target.files[0]);
 };
@@ -35,7 +35,11 @@ const submit = async (e) => {
             'Content-Type': 'multipart/form-data'
           }
         });
-        navigate('/home');
+        if (role === 'superAdmin') {
+            navigate('/home');
+        }else if(role === 'admin'){
+            navigate('/Homadmin/AdHome');
+        }
         console.log(response.data);
       } catch (error) {
         console.error('Error uploading the file:', error);
