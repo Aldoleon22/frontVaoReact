@@ -21,7 +21,7 @@ const Home = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('role');
         localStorage.removeItem('userName');
-        navigate('/login');
+        navigate('/');
     }
 
     return (

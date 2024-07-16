@@ -26,12 +26,20 @@ const Login = () => {
         setIsToken(true);
         localStorage.setItem('accessToken', response.data.access_token);
         console.log(response.data.access_token);
-        localStorage.setItem('userName', response.data.userName); // Stockez le nom de l'utilisateur
+        localStorage.setItem('userName', response.data.userName);// Stockez le nom de l'utilisateur
+        localStorage.setItem('userEmail', response.data.userEmail); 
+        localStorage.setItem('userId', response.data.userId); 
+
+         
         localStorage.setItem('role', response.data.role);
 
         // Rediriger en fonction du statut de l'utilisateur
         const userStatus = response.data.role;
         const userName = response.data.userName;
+        const userEmail = response.data.userEmail;
+        const userId = response.data.userId;
+
+
         console.log(userStatus);
 
 
@@ -46,7 +54,7 @@ const Login = () => {
             break;
           default:
             console.log('Connecté en tant que User');
-            navigate('/home');
+            navigate('/uservue/*');
             break;
         }
       } else {
