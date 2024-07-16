@@ -15,19 +15,19 @@ const fileChange = (e) => {
     setFile(e.target.files[0]);
 };
 
-const dataChange = (e) => {
-    setDataCar({
-        ...dataCar,
-        [e.target.name]: e.target.value
-    });
-};
+    const dataChange = (e) => {
+        setDataCar({
+            ...dataCar,
+            [e.target.name]: e.target.value
+        });
+    };
 
-const submit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('photo', file);
-    formData.append('marque', dataCar.marque);
-    formData.append('matricule', dataCar.matricule);
+    const submit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('photo', file);
+        formData.append('marque', dataCar.marque);
+        formData.append('matricule', dataCar.matricule);
 
     try {
         const response = await axios.post('http://127.0.0.1:8000/api/addCar', formData, {
@@ -48,44 +48,41 @@ const submit = async (e) => {
 
 
 
-  return (
-    <div className='AjoutEngin'>
+    return (
+        <div className='AjoutEngin'>
+            <div className='Engin'>
+                <form>
+                    <span className="title">Ajout de voiture</span>
+                    <div className='row'>
+                        <div className='left'>
+                            <input
+                                type="text"
 
-        <div className='Engin'>
-        
+                                placeholder="Marque de voiture"
+                                name="marque"
+                                className="input"
+                                onChange={e => dataChange(e)}
+                            />
 
-            <form>
-                <span className="title">Ajout de voiture</span>
-                <div className='row'>
-                    <div className='left'>
-                    <input
-                        type="text"
 
-                        placeholder = "Marque de voiture"
-                        name="marque"
-                        className="input"
-                        onChange={e => dataChange(e)}
-                    />
-                   
-                    
-                        <input
-                            type="text"
+                            <input
+                                type="text"
 
-                            placeholder = "matricule"
-                            name="matricule"
-                            className="input"
-                            onChange={e => dataChange(e)}
-                        />
-                        <input type="file" name="photo" onChange={fileChange}/>                       
+                                placeholder="matricule"
+                                name="matricule"
+                                className="input"
+                                onChange={e => dataChange(e)}
+                            />
+                            <input type="file" name="photo" onChange={fileChange} />
+                            <input type="submit" value="Inscrire" name="inscrire" onClick={submit} />
 
+
+                        </div>
                     </div>
-                </div>
-                <input type="submit" value="Inscrire" name="inscrire" onClick={submit}/>
-
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default AjoutEngin

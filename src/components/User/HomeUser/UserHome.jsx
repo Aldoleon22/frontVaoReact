@@ -13,7 +13,7 @@ import AllUser from '../AllUser/AllUser';
 const UserHome = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem('userName');
-    localStorage.removeItem('role');
+    // localStorage.removeItem('role');
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('role');
