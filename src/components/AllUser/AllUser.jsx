@@ -11,7 +11,7 @@ const AddUser = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/users');
-        setUsers(response.data);
+        setUsers(response.data.users);
       } catch (error) {
         let errorMessage = 'Erreur lors de la récupération des utilisateurs';
         if (error.response) {
@@ -31,6 +31,16 @@ const AddUser = () => {
     fetchUsers();
   }, []);
 
+  //suppression
+  const clickDelete = async (id) =>{
+    await axios.delete('http://127.0.0.1:8000/api/usersDelete/'+id);
+    const newListeData = users.filter((item)=>{
+      return(
+        item.id !== id
+      )
+    })
+    setUsers(newListeData);p
+  }
   return (
     <div className='content-user'>
       <div className='All-user'>
@@ -53,7 +63,7 @@ const AddUser = () => {
                 <td>{user.email}</td>
                 <td>
                   <a href="" className='edit'><FaUserEdit /></a>
-                  <a href="" className='trash'><FaRegTrashAlt /></a>
+                  <button href="" className='trash' onClick={()=>clickDelete(user.id)}><FaRegTrashAlt /></button>
                 </td>
               </tr>
             ))}

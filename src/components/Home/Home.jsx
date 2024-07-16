@@ -16,7 +16,7 @@ import Modifcar from '../Admin/CarAd/Modifcar/Modifcar';
 const Home = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem('userName');
-    localStorage.removeItem('role');
+    // localStorage.removeItem('role');
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('role');
