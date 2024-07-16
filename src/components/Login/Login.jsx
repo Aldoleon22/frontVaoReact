@@ -46,7 +46,7 @@ const Login = () => {
             break;
           default:
             console.log('Connecté en tant que User');
-            navigate('/home');
+            navigate('/HomeUser/UserHome');
             break;
         }
       } else {

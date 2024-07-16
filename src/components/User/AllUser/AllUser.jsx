@@ -4,7 +4,7 @@ import './AllUser.scss';
 import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
 
 const AddUser = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]); // Initialisé à un tableau vide
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -31,17 +31,6 @@ const AddUser = () => {
     fetchUsers();
   }, []);
 
-  const updateUserStatus = async (id, status) => {
-    try {
-      await axios.put(`http://localhost:8000/api/users/${id}/status`, { status });
-      // Mettre à jour la liste des utilisateurs après la modification du statut
-      setUsers(users.map(user => user.id === id ? { ...user, status } : user));
-    } catch (error) {
-      console.error('Erreur lors de la mise à jour du statut:', error);
-      setError('Erreur lors de la mise à jour du statut');
-    }
-  };
-
   return (
     <div className='content-user'>
       <div className='All-user'>
@@ -53,8 +42,7 @@ const AddUser = () => {
               <th>id</th>
               <th>Nom</th>
               <th>Email</th>
-              <th>Rôle</th>
-              <th>Action</th>
+             
             </tr>
           </thead>
           <tbody>
@@ -63,17 +51,7 @@ const AddUser = () => {
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>
-                  <select value={user.status} onChange={(e) => updateUserStatus(user.id, e.target.value)}>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                    <option value="superAdmin">Super Admin</option>
-                  </select>
-                </td>
-                <td>
-                  <a href="" className='edit'><FaUserEdit /></a>
-                  <a href="" className='trash'><FaRegTrashAlt /></a>
-                </td>
+             
               </tr>
             ))}
           </tbody>
