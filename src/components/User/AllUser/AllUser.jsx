@@ -11,8 +11,7 @@ const AddUser = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/users');
-        setUsers(response.data.users);
-        console.log(response.data.users)
+        setUsers(response.data);
       } catch (error) {
         let errorMessage = 'Erreur lors de la récupération des utilisateurs';
         if (error.response) {
@@ -32,27 +31,6 @@ const AddUser = () => {
     fetchUsers();
   }, []);
 
-  const updateUserStatus = async (id, status) => {
-    try {
-      await axios.put(`http://localhost:8000/api/users/${id}/status`, { status });
-      // Mettre à jour la liste des utilisateurs après la modification du statut
-      setUsers(users.map(user => user.id === id ? { ...user, status } : user));
-    } catch (error) {
-      console.error('Erreur lors de la mise à jour du statut:', error);
-      setError('Erreur lors de la mise à jour du statut');
-    }
-  };
-
-  //suppression
-  const clickDelete = async (id) =>{
-    await axios.delete('http://127.0.0.1:8000/api/usersDelete/'+id);
-    const newListeData = users.filter((item)=>{
-      return(
-        item.id !== id
-      )
-    })
-    setUsers(newListeData);
-  }
   return (
     <div className='content-user'>
       <div className='All-user'>
@@ -64,8 +42,7 @@ const AddUser = () => {
               <th>id</th>
               <th>Nom</th>
               <th>Email</th>
-              <th>Rôle</th>
-              <th>Action</th>
+             
             </tr>
           </thead>
           <tbody>
@@ -74,17 +51,7 @@ const AddUser = () => {
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>
-                  <select value={user.status} onChange={(e) => updateUserStatus(user.id, e.target.value)}>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                    <option value="superAdmin">Super Admin</option>
-                  </select>
-                </td>
-                <td>
-                  <a href="" className='edit'><FaUserEdit /></a>
-                  <button href="" className='trash' onClick={()=>clickDelete(user.id)}><FaRegTrashAlt /></button>
-                </td>
+             
               </tr>
             ))}
           </tbody>
