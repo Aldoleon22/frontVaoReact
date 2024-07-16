@@ -14,7 +14,7 @@ import AjoutEngin from '../../AjoutEngin/AjoutEngin'
 const AdHome = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem('userName');
-    localStorage.removeItem('role');
+    // localStorage.removeItem('role');
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('role');
