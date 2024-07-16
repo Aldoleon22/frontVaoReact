@@ -4,15 +4,14 @@ import './AllUser.scss';
 import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
 
 const AddUser = () => {
-  const [users, setUsers] = useState([]); // Initialisé à un tableau vide
+  const [users, setUsers] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/users');
-        setUsers(response.data.users);
-        console.log(response.data.users)
+        setUsers(response.data);
       } catch (error) {
         let errorMessage = 'Erreur lors de la récupération des utilisateurs';
         if (error.response) {
@@ -43,16 +42,6 @@ const AddUser = () => {
     }
   };
 
-  //suppression
-  const clickDelete = async (id) =>{
-    await axios.delete('http://127.0.0.1:8000/api/usersDelete/'+id);
-    const newListeData = users.filter((item)=>{
-      return(
-        item.id !== id
-      )
-    })
-    setUsers(newListeData);
-  }
   return (
     <div className='content-user'>
       <div className='All-user'>
@@ -83,7 +72,7 @@ const AddUser = () => {
                 </td>
                 <td>
                   <a href="" className='edit'><FaUserEdit /></a>
-                  <button href="" className='trash' onClick={()=>clickDelete(user.id)}><FaRegTrashAlt /></button>
+                  <a href="" className='trash'><FaRegTrashAlt /></a>
                 </td>
               </tr>
             ))}
