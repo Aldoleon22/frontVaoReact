@@ -32,7 +32,6 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 15px;
-  background-color: var(--body-bg);
 }
 
 h1,
@@ -70,6 +69,6 @@ ul {
 .main__layout{
   margin-left: 270px;
 }
-img{
-  width: 100%;
+.content-user-back{
+  background-color: var(--body-bg);
 }

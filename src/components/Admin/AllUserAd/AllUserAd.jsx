@@ -15,7 +15,7 @@ const AddUser = () => {
           const fetchUsers = async () => {
             try {
               const response = await axios.get('http://localhost:8000/api/users');
-              setUsers(response.data);
+              setUsers(response.data.users);
             } catch (error) {
               let errorMessage = 'Erreur lors de la récupération des utilisateurs';
               if (error.response) {

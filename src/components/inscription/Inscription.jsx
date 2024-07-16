@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [nom, setNom] = useState('');
-  const navigate =useNavigate(); 
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCpassword] = useState('');
@@ -21,7 +21,7 @@ function Register() {
         email,
         password,
       });
-      navigate('/home');
+      navigate ('/home')
       console.log('Inscription réussie:', response.data);
       // Redirection ou autre logique après inscription réussie
 

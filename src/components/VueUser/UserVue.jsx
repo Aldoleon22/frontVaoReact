@@ -9,13 +9,13 @@ import TopUser from './TopUser/TopUser'
 const UserVue = () => {
   return (
     <div className='layout'>
-        <Navbar/>
-        <div className='main__layout'>
-            <TopUser/>
-        </div>
-        <div className='content'>
-            <RouteUser/>
-        </div>
+      <Navbar />
+      <div className='main__layout'>
+        <TopUser />
+      </div>
+      <div className='content-user-back'>
+        <RouteUser />
+      </div>
 
     </div>
   )

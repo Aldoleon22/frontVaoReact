@@ -4,84 +4,81 @@ import './AjoutEngin.scss'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 function AjoutEngin() {
-const [file, setFile] = useState(null);
-const navigate =useNavigate();
-const [dataCar, setDataCar] = useState({
-    marque:'',
-    matricule:''
-});
-
-const fileChange = (e) => {
-    setFile(e.target.files[0]);
-};
-
-const dataChange = (e) => {
-    setDataCar({
-        ...dataCar,
-        [e.target.name]: e.target.value
+    const [file, setFile] = useState(null);
+    const navigate = useNavigate();
+    const [dataCar, setDataCar] = useState({
+        marque: '',
+        matricule: ''
     });
-};
 
-const submit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('photo', file);
-    formData.append('marque', dataCar.marque);
-    formData.append('matricule', dataCar.matricule);
+    const fileChange = (e) => {
+        setFile(e.target.files[0]);
+    };
 
-    try {
-        const response = await axios.post('http://127.0.0.1:8000/api/addCar', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
+    const dataChange = (e) => {
+        setDataCar({
+            ...dataCar,
+            [e.target.name]: e.target.value
         });
-        navigate('/home');
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error uploading the file:', error);
-      }
-}
+    };
+
+    const submit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('photo', file);
+        formData.append('marque', dataCar.marque);
+        formData.append('matricule', dataCar.matricule);
+
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/addCar', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            navigate('/home');
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error uploading the file:', error);
+        }
+    }
 
 
 
-  return (
-    <div className='AjoutEngin'>
+    return (
+        <div className='AjoutEngin'>
+            <div className='Engin'>
+                <form>
+                    <span className="title">Ajout de voiture</span>
+                    <div className='row'>
+                        <div className='left'>
+                            <input
+                                type="text"
 
-        <div className='Engin'>
-        
+                                placeholder="Marque de voiture"
+                                name="marque"
+                                className="input"
+                                onChange={e => dataChange(e)}
+                            />
 
-            <form>
-                <span className="title">Ajout de voiture</span>
-                <div className='row'>
-                    <div className='left'>
-                    <input
-                        type="text"
 
-                        placeholder = "Marque de voiture"
-                        name="marque"
-                        className="input"
-                        onChange={e => dataChange(e)}
-                    />
-                   
-                    
-                        <input
-                            type="text"
+                            <input
+                                type="text"
 
-                            placeholder = "matricule"
-                            name="matricule"
-                            className="input"
-                            onChange={e => dataChange(e)}
-                        />
-                        <input type="file" name="photo" onChange={fileChange}/>                       
+                                placeholder="matricule"
+                                name="matricule"
+                                className="input"
+                                onChange={e => dataChange(e)}
+                            />
+                            <input type="file" name="photo" onChange={fileChange} />
+                            <input type="submit" value="Inscrire" name="inscrire" onClick={submit} />
 
+
+                        </div>
                     </div>
-                </div>
-                <input type="submit" value="Inscrire" name="inscrire" onClick={submit}/>
-
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default AjoutEngin

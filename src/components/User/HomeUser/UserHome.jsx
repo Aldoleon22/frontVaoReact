@@ -1,17 +1,16 @@
 import React from 'react'
-import './Adhome.scss'
+import './UserHome.scss'
 import { TfiPowerOff, TfiSearch } from 'react-icons/tfi'
 import { FaHome, FaRegUser } from 'react-icons/fa'
-import { MdAddBox } from 'react-icons/md'
 import { Link, Routes, Route, useNavigate } from 'react-router-dom';
 import Image from "../../../assets/image/46.jpg";
-import CarAd from '../CarAd/CarAd'
-import Inscription from '../../inscription/Inscription'
-import AllUserAd from '../AllUserAd/AllUserAd'
-import CarModifAd from '../CarAd/CarModifAd'
-import Modifcar from '../CarAd/Modifcar/Modifcar'
-import AjoutEngin from '../../AjoutEngin/AjoutEngin'
-const AdHome = () => {
+import ViewCar from '../ViewCar/ViewCar';
+import AllUser from '../AllUser/AllUser';
+
+
+
+
+const UserHome = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem('userName');
     // localStorage.removeItem('role');
@@ -49,18 +48,18 @@ const AdHome = () => {
                 <div className="aside-bar">
                     <ul>
                         <li className="nav-link active" ><Link className="nav-item" to=''><FaHome className='icon' /> Home</Link></li>
-                        <li className="nav-link"><Link className="nav-item" to='AdCar'><MdAddBox className='icon' /> Add car</Link></li>
+                      
                         <li className="nav-link"><Link className="nav-item" to='AllUser'><FaRegUser className='icon' /> All User</Link></li>
                     </ul>
                 </div>
 
                 <div className="content-element">
                     <Routes>
-                        <Route path='' element={<CarAd />}/>
-                        <Route path='AdCar' element={<AjoutEngin />}/>
-                        <Route path='AllUser' element={<AllUserAd />}/>
-                        <Route path='voir/:id' element={<CarModifAd />}/>
-                        <Route path='Modifcar/:id' element={<Modifcar />}/>
+                        <Route path='' element={<ViewCar />}/>
+                    
+                        <Route path='AllUser' element={<AllUser />}/>
+                     
+                        
 
                     </Routes>
                 </div>
@@ -69,4 +68,4 @@ const AdHome = () => {
     )
 }
 
-export default AdHome
+export default UserHome
