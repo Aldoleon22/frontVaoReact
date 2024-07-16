@@ -3,7 +3,7 @@ import axios from 'axios';
 import './AllUser.scss';
 import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
 
-const AddUser = () => {
+const AllUser = () => {
   const [users, setUsers] = useState([]); // Initialisé à un tableau vide
   const [error, setError] = useState('');
 
@@ -61,4 +61,4 @@ const AddUser = () => {
   );
 }
 
-export default AddUser;
+export default AllUser;
