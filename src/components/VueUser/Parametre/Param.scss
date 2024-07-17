@@ -2,11 +2,12 @@
 @import '../../../variable.scss';
 
 .Profile{
-    @include taille (100%,auto);
+    @include taille (90%,auto);
     #{$dp}: flex;
     align-items: center;
     justify-content:center ;
-    margin-left: 270px;
+    margin-left: 11%;
+    margin-top: 3%;
     .afferror{
         @include taille (300px,60px);
         background-color: rgba(0, 255, 0, 0.395);

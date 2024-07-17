@@ -23,9 +23,11 @@ const ListeCar = () => {
                 datefin: datefin,
                 userId: userId,
             });
-            console.log('Réservation réussie:', response.data);
+            ('Réservation réussie:', response.data);
+            setError('');
+            setModal(false);
         } catch (error) {
-            setError('Erreur lors de réservation');
+            setError('Erreur lors de réservation:' + error.response.data.message);
             console.error('Erreur lors de réservation:', error);
         }
     };
@@ -46,12 +48,13 @@ const ListeCar = () => {
     const toggleModal = (car = null) => {
         setSelectedCar(car);
         setModal(!modal);
+        setError('');
     };
 
     return (
-        <div className='content-element'>
-            <section className='car section'>
-                <div className='car__container container grid'>
+        <div className='content__element'>
+            <section className='car__section'>
+                <div className='car__container grid'>
                     {carData.map((car) => (
                         <div key={car.id} className='car__item'>
                             <h1>{car.marque}</h1>

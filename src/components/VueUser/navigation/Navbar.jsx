@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className='sidebar'>
         <div className='sidebar__top'>
-            <h2><i className="ri-taxi-line"></i> UberX</h2>
+            <h2><i className="ri-taxi-line"></i> LOCATION</h2>
         </div>
         <div className='sidebar__content'>
             <div className='menu'>
