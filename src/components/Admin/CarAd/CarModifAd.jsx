@@ -27,6 +27,7 @@ const CarModifAd = () => {
         try {
             const galView = await axios.get("http://127.0.0.1:8000/api/viewGalerie/" + id);
             setGalerie(galView.data.galerie);
+            console.log(galView.data.galerie);
         } catch (error) {
             console.log("Verifier le code");
         }
@@ -71,6 +72,23 @@ const CarModifAd = () => {
         }
     }, [acceptedFiles]);
     // end upload file
+
+
+    //suppression galerie
+    const handDelete = async (id) =>{
+        try {
+            console.log(id);
+            await axios.delete('http://127.0.0.1:8000/api/PhotoDelete/'+id);
+        const newGalerie = Galerie.filter((item)=>{
+            return(
+                item.id !== id
+            )
+        })
+        setGalerie(newGalerie);
+        } catch (error) {
+            console.log('ts mande');
+        }
+    }
     return (
         <div>
             <div className="desCar">
@@ -105,9 +123,9 @@ const CarModifAd = () => {
                                     </div>
                                 ))}
                                 {Galerie.map((gal, i) => (
-                                    <div className="carscroll">
-                                        <Link><FaTrashAlt className='icon' /></Link>
-                                        <img key={i} src={`http://127.0.0.1:8000/storage/GalerieVehicule/${gal.image}`} alt="" />
+                                    <div className="carscroll" key={i}>
+                                        <button  onClick={()=>handDelete(gal.id)}><FaTrashAlt className='icon' /></button>
+                                        <img src={`http://127.0.0.1:8000/storage/GalerieVehicule/${gal.image}`} alt="" />
                                     </div>
                                 ))}
                             </div>
