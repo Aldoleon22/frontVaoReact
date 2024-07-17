@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './CarModifAd.scss';
-import { FaUserEdit } from "react-icons/fa";
+import { FaTrash, FaUserEdit } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { MdAddBox } from 'react-icons/md';
 import axios from 'axios';
@@ -26,6 +27,7 @@ const CarModifAd = () => {
         try {
             const galView = await axios.get("http://127.0.0.1:8000/api/viewGalerie/" + id);
             setGalerie(galView.data.galerie);
+            console.log(galView.data.galerie);
         } catch (error) {
             console.log("Verifier le code");
         }
@@ -36,6 +38,8 @@ const CarModifAd = () => {
         fetchGal();
     }, [id]);
 
+
+    // upload file using drop zone
     const handleUpload = async () => {
         const formData = new FormData();
         acceptedFiles.forEach(file => {
@@ -45,7 +49,7 @@ const CarModifAd = () => {
         const id = carChek.id;
 
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/addGalerie/`+id, formData, {
+            const response = await axios.post(`http://127.0.0.1:8000/api/addGalerie/` + id, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -58,7 +62,6 @@ const CarModifAd = () => {
     const onDrop = useCallback((acceptedFiles) => {
         setAcceptedFiles(acceptedFiles);
     }, []);
-
     const { getRootProps, getInputProps } = useDropzone({
         accept: 'image/*',
         onDrop
@@ -68,7 +71,24 @@ const CarModifAd = () => {
             handleUpload();
         }
     }, [acceptedFiles]);
+    // end upload file
 
+
+    //suppression galerie
+    const handDelete = async (id) =>{
+        try {
+            console.log(id);
+            await axios.delete('http://127.0.0.1:8000/api/PhotoDelete/'+id);
+        const newGalerie = Galerie.filter((item)=>{
+            return(
+                item.id !== id
+            )
+        })
+        setGalerie(newGalerie);
+        } catch (error) {
+            console.log('ts mande');
+        }
+    }
     return (
         <div>
             <div className="desCar">
@@ -91,16 +111,22 @@ const CarModifAd = () => {
                         <div className="action">
                             <Link className='linkcar' to={`../Modifcar/${carChek.id}`}><FaUserEdit className='icon' /></Link>
                             <Link className='linkcar' {...getRootProps({ className: 'linkcar' })}><MdAddBox className='icon' /></Link>
-                            <input {...getInputProps()} name='image'/>
+                            <input {...getInputProps()} name='image' />
                         </div>
                         <div className="gallerypar">
                             <h3>Tous les images</h3>
                             <div className="gallery">
                                 {acceptedFiles.map((file, index) => (
-                                    <img key={index} src={URL.createObjectURL(file)} alt='upload' />
+                                    <div className="carscroll">
+                                        <Link><FaTrashAlt className='icon' /></Link>
+                                        <img key={index} src={URL.createObjectURL(file)} alt='upload' />
+                                    </div>
                                 ))}
                                 {Galerie.map((gal, i) => (
-                                    <img key={i} src={`http://127.0.0.1:8000/storage/GalerieVehicule/${gal.image}`} alt="" />
+                                    <div className="carscroll" key={i}>
+                                        <button  onClick={()=>handDelete(gal.id)}><FaTrashAlt className='icon' /></button>
+                                        <img src={`http://127.0.0.1:8000/storage/GalerieVehicule/${gal.image}`} alt="" />
+                                    </div>
                                 ))}
                             </div>
                         </div>

@@ -107,11 +107,25 @@
                     justify-content: center;
                     align-items: center;
                     gap: 2%;
+                    overflow: hidden;
+                    overflow-x: scroll;
+                    scrollbar-color: red;
 
-                    img {
-                        width: 100px;
-                        border-radius: 10px;
+                    .carscroll{
+                        display: flex;
+                        flex-direction: column;
+                        .icon{
+                            color: red;
+                            text-align: right;
+                            margin: 2% 0 0 0;
+                        }
+                        img {
+                            width: 100px;
+                            border-radius: 10px;
+                        }
                     }
+                    
+                   
                 }
             }
         }
